@@ -2,6 +2,10 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
+const options ={
+    extensions: ['htm','html']
+}
+
 let tenMovies = [
     {
         title: 'Black Panther',
@@ -47,7 +51,9 @@ let tenMovies = [
 
 app.use(morgan('common'));
 
-app.use(express.static('public'));
+
+
+app.use(express.static('public',options));
 
 // GET requests
 app.get('/',(req,res)=>{

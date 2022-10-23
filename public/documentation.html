@@ -11,98 +11,169 @@
         border-collapse: collapse;
         width: 100%;
       }
-      
-      td, th {
+
+      td,
+      th {
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
       }
-      
+
       tr:nth-child(even) {
         background-color: #dddddd;
       }
-      </style>
+      code {
+      display: block;
+      white-space: pre-wrap   
+}
+    </style>
   </head>
   <body>
     <h1>Documentation of "The Diversity Movie API"</h1>
     <p>
       The API is a Node.js and Express application and uses REST architecture.
       It returns data about movies with approach to diversity, equity and
-      inclusion.  
-      <body>
-      <table>
-        <tr>
-          <th>Business Logic</th>
-          <th>URL</th>
-          <th>HTTP Method</th>
-          <th>Request body data format</th>
-          <th>Response body data format</th>
-        </tr>
-        <tr>
-          <td>Get a list of all movies</td>
-          <td>/movies</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON Object holding data about all movies</td>
-        </tr>
-        <tr>
-          <td>Get data about a single movie by title</td>
-          <td>/movies/[title]</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about a single movie, containing an title, description, genre, director, image URL</td>
-        </tr>
-        <tr>
-          <td>Get data about a genre (description) by name</td>
-          <td>/genres/[name]</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A text message </td>
-        </tr>
-        <tr>
-          <td>Get data about a director by name</td>
-          <td>/directors/[name]</td>
-          <td>GET</td>
-          <td>None</td>
-          <td>A JSON object holding data about a single director, containing bio, birth year and death year</td>
-        </tr>
-        <tr>
-          <td>Add a new user</td>
-          <td>/users</td>
-          <td>POST</td>
-          <td>A JSON Object holding data about ths user to add, structured like: {username: "watcherOne", email: "erin.yilmaz@gmx.de", password: "jdhsk63%n", date of birth: "01.01.2001"}</td>
-          <td>A text message indicating the username and the emailaddress of the user.</td>
-        </tr>
-        <tr>
-          <td>Update user info (username)</td>
-          <td>/users/[username]</td>
-          <td>PATCH</td>
-          <td>None</td>
-          <td>A text message indication the username that was updated</td>
-        </tr>
-        <tr>
-          <td>Add movie to favorites list</td>
-          <td>/users/[username]/list</td>
-          <td>POST</td>
-          <td>A JSON object holding data about a single movie, containing an title, description, genre, director, image URL</td>
-          <td>A text message including the title of the movie that has been added</td>
-        </tr>
-        <tr>
-          <td>Remove movie from favorites list </td>
-          <td>/users/[username]/list/[title]/</td>
-          <td>DELETE</td>
-          <td>None</td>
-          <td>A text message including the title of the movie that has been deleted</td>
-        </tr>
-        <tr>
-          <td>Remove a user by username</td>
-          <td>/users/[username]</td>
-          <td>DELETE</td>
-          <td>None</td>
-          <td>A text message including the username and email that has been removed</td>
-        </tr>
-      </table>
-      
+      inclusion.
     </p>
+
+    <table>
+      <tr>
+        <th>Business Logic</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+      <tr>
+        <td>Get a list of all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          An array holding JSON Objects holding data about each movie. E.g.:
+          <code>
+[ { "title": "Black Panther", 
+    "director": "Ryan Coogler", 
+    "year": 2018, 
+    "genre": [ "Action", "Adventure", "Fantasy" ], 
+    "description": "After the death of his father...", 
+    "imageUrl": "https://url.com" }, 
+  {
+      "title:..."
+  }
+]
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>Get data about a single movie by title</td>
+        <td>/movies/[title]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about a single movie, containing an title,
+          description, genre, director, image URL
+        </td>
+      </tr>
+      <tr>
+        <td>Get data about a genre (description) by name</td>
+        <td>/genres/[name]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A text message that describes the chosen genre.</td>
+      </tr>
+      <tr>
+        <td>Get data about a director by name</td>
+        <td>/directors/[name]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about a single director, containing
+          bio, birth year and death year.
+        </td>
+      </tr>
+      <tr>
+        <td>Get a list with all users and their data</td>
+        <td>/users</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>
+          An Array with JSON objects holding data about each user. E.g.:
+          <code>
+[ { "username": "user1", 
+    "id": "1", 
+    "email": "user@gmx.de",
+    "favorites": [
+    { "title" : "Ladybird" }
+    ] 
+  }, 
+  { "username": ...}
+]
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>Add a new user</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>
+          A JSON Object holding data about the user to add, structured like:
+          <code>
+{"username" : "watcherOne", 
+"email" : "user1@mail.de", 
+"date of birth" : "01.01.2001"}
+          </code>
+        </td>
+        <td>
+          A text message indicating the username and the emailaddress of the
+          user.
+        </td>
+      </tr>
+      <tr>
+        <td>Update user info (username)</td>
+        <td>/users/[id]/[username]</td>
+        <td>PATCH</td>
+        <td>None</td>
+        <td>A text message indication the username that was updated</td>
+      </tr>
+      <tr>
+        <td>Add movie to favorites list</td>
+        <td>/users/[username]/favorites</td>
+        <td>POST</td>
+        <td>
+          A JSON object holding data about a single movie, containing an title,
+          description, genre, director, image URL. E.g.: 
+          <code>
+{ "title": "Black Panther", 
+"director": "Ryan Coogler", 
+"year": 2018, 
+"genre": [ "Action", "Adventure", "Fantasy" ], 
+"description": "After the death of his father...", 
+"imageUrl": "https://url.com" }, 
+          </code>
+        </td>
+        <td>
+          A text message including the title of the movie that has been added
+        </td>
+      </tr>
+      <tr>
+        <td>Remove movie from favorites list</td>
+        <td>/users/[username]/favorites/[title]/</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>
+          A text message including the title of the movie that has been deleted
+        </td>
+      </tr>
+      <tr>
+        <td>Remove a user by username</td>
+        <td>/users/[username]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>
+          A text message including the username and email that has been removed
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

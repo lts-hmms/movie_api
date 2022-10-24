@@ -103,7 +103,8 @@ let movies = [
         genre: [{name: 'Romance', 
         description: 'Romance films are love stories. They center around two protagonists exploring some of the elements of love like relationships, sacrifice, marriage, obsession, or destruction. Romance movies sometimes feature hardships like illness, infidelity, tragedy, or other obstacles for the love interests to overcome. Romantic comedies, gothic romance, and romantic action are some popular romance subgenres.'},
         {name:'Comedy',
-        description:'Comedy films are funny and entertaining. The films in this genre center around a comedic premise—usually putting someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies are less about making constant jokes and more about presenting a universally relatable, real-life story with complex characters who learn an important lesson. Mockumentary, dark comedy (or black comedy), romantic comedy, parody/spoof, and slapstick comedy are all examples of comedy subgenres.'}, 'Drama'],
+        description:'Comedy films are funny and entertaining. The films in this genre center around a comedic premise—usually putting someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies are less about making constant jokes and more about presenting a universally relatable, real-life story with complex characters who learn an important lesson. Mockumentary, dark comedy (or black comedy), romantic comedy, parody/spoof, and slapstick comedy are all examples of comedy subgenres.'}, 
+        {name:'Drama', description: 'The drama genre features stories with high stakes and many conflicts. They’re plot-driven and demand that every character and scene move the story forward. Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters. Films that fall into drama sub-genres include historical drama or costume drama, romantic drama, teen drama, medical drama, docudrama, film noir, and neo-noir.'}],
         description: `Francis (Xavier Dolan) is a young gay man, Marie (Monia Chokri) is a young straight woman and the two of them are best friends -- until the day the gorgeous Nicolas (Niels Schneider) walks into a Montreal coffee shop. The two friends, instantly and equally infatuated, compete for Nicolas' indeterminate affections, a conflict that climaxes when the trio visit the vacation home of Nicolas' mother. The frothy comedy unfolds through narrative, fantasy sequences and confessional monologues.`,
         imageUrl: 'https://flxt.tmsimg.com/assets/p8153637_p_v10_ac.jpg'
     },
@@ -157,12 +158,24 @@ app.get('/movies/:title',(req,res)=>{
 })
 
 // get genre description by name
-app.get('/genres/:name',(req,res)=>{
-    res.send('This is a description about the film genre ' + req.params.name)
-})
+app.get('/movies/:title/genre/:name/description',(req,res)=>{
+    let movie = movies.find((movie)=>{return movie.title ===req.params.title})
+   let genreArr =movie.genre
+   for (let i=0; i<genreArr.length; i++){
+    if (genreArr[i].name === req.params.name){
+        res.send('Description of ' + req.params.name + ': ' + genreArr[i].description)
+       
+    } else {
+        res.send('Sorry, genre not found')
+    }
+   }
+   })
+   
+
 
 // get director data by name
-app.get('/directors/:name',(req,res)=>{
+app.get('/movies/directors/:name',(req,res)=>{
+    
     res.send('This is the data about ' + req.params.name)
 })
 

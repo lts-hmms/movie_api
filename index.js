@@ -164,20 +164,18 @@ app.get('/movies/:title/genre/:name/description',(req,res)=>{
    for (let i=0; i<genreArr.length; i++){
     if (genreArr[i].name === req.params.name){
         res.send('Description of ' + req.params.name + ': ' + genreArr[i].description)
-       
     } else {
         res.send('Sorry, genre not found')
     }
    }
    })
-   
-
 
 // get director data by name
-app.get('/movies/directors/:name',(req,res)=>{
-    
-    res.send('This is the data about ' + req.params.name)
-})
+app.get('/movies/:title/director/:name',(req,res)=>{
+    let movie = movies.find((movie)=>{return movie.title ===req.params.title})
+    res.json(movie.director)
+    })
+
 
 // get all users
 app.get('/users',(req,res)=> {

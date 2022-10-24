@@ -26,7 +26,7 @@ let users =[
 let movies = [
     {
         title: 'Black Panther',
-        director: [{name: 'Ryan Coogler', year of birth:'1986', year of death:'', bio:'Ryan Kyle Coogler is an African-American filmmaker and producer who is from Oakland, California. He is known for directing the Black Panther film series, Creed, a Rocky spin-off and Fruitvale Station. He frequently casts Michael B. Jordan in his works.'}],
+        director: [{"name": 'Ryan Coogler', "year of birth":'1986', "year of death":'', bio:'Ryan Kyle Coogler is an African-American filmmaker and producer who is from Oakland, California. He is known for directing the Black Panther film series, Creed, a Rocky spin-off and Fruitvale Station. He frequently casts Michael B. Jordan in his works.'}],
         year: 2018,
         genre: [{name: 'Action', 
         description: 'Movies in the action genre are fast-paced and include a lot of action like fight scenes, chase scenes, and slow-motion shots. They can feature superheroes, martial arts, or exciting stunts. These high-octane films are more about the execution of the plot rather than the plot itself. Action movies are thrilling to watch and leave audience members on the edge of their seats. Cop movies, disaster films, and some spy films fall under the action category.'}, 
@@ -39,7 +39,7 @@ let movies = [
     },
     {
         title: 'The Big Sick',
-        director: [{name:'Michael Showalter', year of birth:'1970',year of death:'', bio:'Michael Showalter is an American comedian, actor, writer, and director. He is one third of the sketch comedy \'trio Stella\'. Showalter first came to recognition as a cast member on MTV\'s \'The State\', which aired from 1993 to 1995. He co-wrote (with David Wain) and starred in Wet Hot American Summer (2001) and he wrote, directed, and starred in \’The Baxter\' (2005). Both of these movies featured many of his co-stars from \'The State\', and so do several of his other projects.'}],
+        director: [{"name":'Michael Showalter', "year of birth":'1970',"year of death":'', "bio":'Michael Showalter is an American comedian, actor, writer, and director. He is one third of the sketch comedy \'trio Stella\'. Showalter first came to recognition as a cast member on MTV\'s \'The State\', which aired from 1993 to 1995. He co-wrote (with David Wain) and starred in Wet Hot American Summer (2001) and he wrote, directed, and starred in \’The Baxter\' (2005). Both of these movies featured many of his co-stars from \'The State\', and so do several of his other projects.'}],
         year: 2017,
         genre: [{name:'Comedy',
         description:'Comedy films are funny and entertaining. The films in this genre center around a comedic premise—usually putting someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies are less about making constant jokes and more about presenting a universally relatable, real-life story with complex characters who learn an important lesson. Mockumentary, dark comedy (or black comedy), romantic comedy, parody/spoof, and slapstick comedy are all examples of comedy subgenres.'},
@@ -50,7 +50,7 @@ let movies = [
     },
     {
         title: 'Get Out',
-        director: [{name:'Jordan Peele', year of birth:'1979',year of death:'', bio:'Jordan Peele, born in New York City, is an American comedian, writer, director, and producer who was known for creating both comedy and horror films and TV shows that address popular culture and social issues, especially race relations.'}],
+        director: [{"name":'Jordan Peele', "year of birth":'1979',"year of death":'', "bio":'Jordan Peele, born in New York City, is an American comedian, writer, director, and producer who was known for creating both comedy and horror films and TV shows that address popular culture and social issues, especially race relations.'}],
         year: 2017,
         genre: [{name:'Horror',
         description:'Horror films feature elements that leave people with an overwhelming sense of fear and dread. Horror movies often include serial killers or monsters as persistent, evil antagonists to play on viewers’ fears or nightmares. Audiences who love the horror genre seek out these movies specifically for the adrenaline rush produced by ghosts, gore, monsters, and jump scares. Films that fall into the horror sub-genres include macabre, ghost stories, gothic horror movies, science fiction horror movies, supernatural movies, dark fantasy movies, psychological horror movies, and slasher movies.'},
@@ -63,7 +63,7 @@ let movies = [
     },
     {
         title: 'Soul',
-        director: [{name:'Pete Docter', year of birth:'1968',year of death:'', bio:'Pete Docter is an American animator, screenwriter, producer, voice actor and an Oscar-winning director of \'Monsters, Inc.\', \'Up\', and \'Inside Out\' – also Chief Creative Officer at Pixar Animation Studios. Starting at Pixar in 1990 as the studio\'s third animator, he animated and directed several commercials.'}],
+        director: [{"name":'Pete Docter', "year of birth":'1968',"year of death":'', "bio":'Pete Docter is an American animator, screenwriter, producer, voice actor and an Oscar-winning director of \'Monsters, Inc.\', \'Up\', and \'Inside Out\' – also Chief Creative Officer at Pixar Animation Studios. Starting at Pixar in 1990 as the studio\'s third animator, he animated and directed several commercials.'}],
         year: 2020,
         genre: [{name:'Animation', description:'The adventure genre is so similar to the action genre that the billing for adventure films is sometimes action/adventure movies. Films in the adventure genre usually contain the same basic genre elements as an action movie, with the setting as the critical difference. Adventure movies are typically set in an exotic, far away, or unfamiliar locale. This category can include swashbuckler films and survival films.'},{name:'Comedy', 
         description:'Comedy films are funny and entertaining. The films in this genre center around a comedic premise—usually putting someone in a challenging, amusing, or humorous situation they’re not prepared to handle. Good comedy movies are less about making constant jokes and more about presenting a universally relatable, real-life story with complex characters who learn an important lesson. Mockumentary, dark comedy (or black comedy), romantic comedy, parody/spoof, and slapstick comedy are all examples of comedy subgenres.'},
@@ -76,7 +76,7 @@ let movies = [
     },
     {
         title: 'The Diving Bell and the Butterfly',
-        director: [{name:'Julian Schnabel', year of birth:'1951',year of death:'', bio:'A key figure in the Neo-expressionist movement, American artist and filmmaker Julian Schnabel – born in Brooklyn – is known for his biographical films, as well as his paintings made from plate fragments, velvet, wood, and wax.'}],
+        director: [{"name":'Julian Schnabel', "year of birth":'1951',"year of death":'', "bio":'A key figure in the Neo-expressionist movement, American artist and filmmaker Julian Schnabel – born in Brooklyn – is known for his biographical films, as well as his paintings made from plate fragments, velvet, wood, and wax.'}],
         year: 2007,
         genre: [{name:'Drama', 
         description:'The drama genre features stories with high stakes and many conflicts. They’re plot-driven and demand that every character and scene move the story forward. Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters. Films that fall into drama sub-genres include historical drama or costume drama, romantic drama, teen drama, medical drama, docudrama, film noir, and neo-noir.'},
@@ -87,7 +87,7 @@ let movies = [
     },
     {
         title: 'Moonlight',
-        director: [{name:'Barry Jenkins', year of birth:'1979',year of death:'', bio:'Barry Jenkins is an American director, writer, and producer who was known for creating lyrical, empathetic films that centre on Black characters. Jenkins grew up in the economically distressed Liberty City neighbourhood of Miami.'}],
+        director: [{"name":'Barry Jenkins', "year of birth":'1979',"year of death":'', bio:'Barry Jenkins is an American director, writer, and producer who was known for creating lyrical, empathetic films that centre on Black characters. Jenkins grew up in the economically distressed Liberty City neighbourhood of Miami.'}],
         year: 2016,
         genre: [{name:'Drama', 
         description:'The drama genre features stories with high stakes and many conflicts. They’re plot-driven and demand that every character and scene move the story forward. Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters. Films that fall into drama sub-genres include historical drama or costume drama, romantic drama, teen drama, medical drama, docudrama, film noir, and neo-noir.'}, 
@@ -98,7 +98,7 @@ let movies = [
     },
     {
         title: 'Heartbeats',
-        director: [{name:'Xavier Dolan', year of birth:'1989',year of death:'', bio:'Xavier Dolan is a Canadian actor, director, screenwriter, editor, costume designer, and voice actor. He began his career as a child actor in commercials before directing several arthouse feature films. He first received international acclaim in 2009 for his feature film directorial debut, \'I Killed My Mother\', which premiered at the Cannes Film Festival in the Director\'s Fortnight section. Since 2009, he has written and directed eight feature films, most of them have premiered at Cannes. Dolan has won many awards for his work, including the Jury Prize at the 2014 Cannes Film Festival for \'Mommy\' and the Grand Prix at the 2016 Cannes Film Festival for \'It\'s Only the End of the World\'. He has also won several Canadian Screen Awards and César Awards.'}],
+        director: [{"name":'Xavier Dolan', "year of birth":'1989',"year of death":'', "bio":'Xavier Dolan is a Canadian actor, director, screenwriter, editor, costume designer, and voice actor. He began his career as a child actor in commercials before directing several arthouse feature films. He first received international acclaim in 2009 for his feature film directorial debut, \'I Killed My Mother\', which premiered at the Cannes Film Festival in the Director\'s Fortnight section. Since 2009, he has written and directed eight feature films, most of them have premiered at Cannes. Dolan has won many awards for his work, including the Jury Prize at the 2014 Cannes Film Festival for \'Mommy\' and the Grand Prix at the 2016 Cannes Film Festival for \'It\'s Only the End of the World\'. He has also won several Canadian Screen Awards and César Awards.'}],
         year: 2011,
         genre: [{name: 'Romance', 
         description: 'Romance films are love stories. They center around two protagonists exploring some of the elements of love like relationships, sacrifice, marriage, obsession, or destruction. Romance movies sometimes feature hardships like illness, infidelity, tragedy, or other obstacles for the love interests to overcome. Romantic comedies, gothic romance, and romantic action are some popular romance subgenres.'},
@@ -109,7 +109,7 @@ let movies = [
     },
     {
         title: 'Paris Is Burning',
-        director: [{name:'Jennie Livingston', year of birth:'1962',year of death:'', bio:'Jennie Livingston is an American filmmaker living in New York, known for her lively storytelling, nuanced character portraits, and thoughtful explorations of identity, class, race, death, sex, and gender. She works in both fiction and nonfiction. Jennie\'s taught at Yale, Connecticut College, and Brooklyn College, lectured widely, written for national magazines, and appeared as a subject or speaker in a number of documentaries and cultural programs. '}],
+        director: [{"name":'Jennie Livingston', "year of birth":'1962',"year of death":'', "bio":'Jennie Livingston is an American filmmaker living in New York, known for her lively storytelling, nuanced character portraits, and thoughtful explorations of identity, class, race, death, sex, and gender. She works in both fiction and nonfiction. Jennie\'s taught at Yale, Connecticut College, and Brooklyn College, lectured widely, written for national magazines, and appeared as a subject or speaker in a number of documentaries and cultural programs. '}],
         year: 1990,
         genre: [{name: 'Documentary', 
         description:'A documentary film or documentary is a non-fictional motion-picture intended to "document reality, primarily for the purposes of instruction, education or maintaining a historical record". The american film critic Bill Nichols has characterized the documentary in terms of "a filmmaking practice, a cinematic tradition, and mode of audience reception [that remains] a practice without clear boundaries".Documentaries are very informative, and are often used within schools as a resource to teach various principles. Documentary filmmakers have a responsibility to be truthful to their vision of the world without intentionally misrepresenting a topic.'}],
@@ -118,7 +118,7 @@ let movies = [
     },
     {
         title: 'Disclosure',
-        director: [{name:'Sam Feder', year of birth:'N/A',year of death:'', bio:'Sam Feder is a Peabody Award nominated film director. Cited by Indiewire as one of the "exciting trans filmmakers shaking up Hollywood", Sam\'s films explore the intersection of visibility and politics along the lines of race, class, and gender. Sam\'s filmmaking practice models inclusion and equity in the industry.'}],
+        director: [{"name":'Sam Feder', "year of birth":'N/A',"year of death":'', "bio":'Sam Feder is a Peabody Award nominated film director. Cited by Indiewire as one of the "exciting trans filmmakers shaking up Hollywood", Sam\'s films explore the intersection of visibility and politics along the lines of race, class, and gender. Sam\'s filmmaking practice models inclusion and equity in the industry.'}],
         year: 2020,
         genre: [{name: 'Documentary', 
         description:'A documentary film or documentary is a non-fictional motion-picture intended to "document reality, primarily for the purposes of instruction, education or maintaining a historical record". The american film critic Bill Nichols has characterized the documentary in terms of "a filmmaking practice, a cinematic tradition, and mode of audience reception [that remains] a practice without clear boundaries".Documentaries are very informative, and are often used within schools as a resource to teach various principles. Documentary filmmakers have a responsibility to be truthful to their vision of the world without intentionally misrepresenting a topic.'}],
@@ -127,7 +127,7 @@ let movies = [
     },
     {
         title: 'Passing',
-        director: [{name:'Rebecca Hall', bio:'Rebecca Maria Hall is an English actress and filmmaker from London.She made her first onscreen appearance at age 10 in the 1992 television adaptation of The Camomile Lawn, directed by her father, Sir Peter Hall. In 2006, following her film debut in \'Starter for 10\', Hall got her breakthrough role in Christopher Nolan\'s thriller film \'The Prestige\'. In 2008, she starred as Vicky in Woody Allen\'s romantic comedy-drama \'Vicky Cristina Barcelona\', for which she received a Golden Globe nomination for Best Actress. Hall then appeared in a wide array of films.She made her directorial debut with Passing (2021), receiving critical acclaim.', year of birth:'1982',year of death:''}],
+        director: [{"name":'Rebecca Hall', "year of birth":'1982',"year of death":'', "bio":'Rebecca Maria Hall is an English actress and filmmaker from London.She made her first onscreen appearance at age 10 in the 1992 television adaptation of The Camomile Lawn, directed by her father, Sir Peter Hall. In 2006, following her film debut in \'Starter for 10\', Hall got her breakthrough role in Christopher Nolan\'s thriller film \'The Prestige\'. In 2008, she starred as Vicky in Woody Allen\'s romantic comedy-drama \'Vicky Cristina Barcelona\', for which she received a Golden Globe nomination for Best Actress. Hall then appeared in a wide array of films.She made her directorial debut with Passing (2021), receiving critical acclaim.'}],
         year: 2021,
         genre: [{name:'Drama', description:'The drama genre features stories with high stakes and many conflicts. They’re plot-driven and demand that every character and scene move the story forward. Dramas follow a clearly defined narrative plot structure, portraying real-life scenarios or extreme situations with emotionally-driven characters. Films that fall into drama sub-genres include historical drama or costume drama, romantic drama, teen drama, medical drama, docudrama, film noir, and neo-noir.'}],
         description: `In 1920s New York City, a Black woman finds her world upended when her life becomes intertwined with a former childhood friend who's passing as white.`,
@@ -205,14 +205,23 @@ app.put('/users/:id/:username',(req,res)=>{
 
 // deregister user
 app.delete('/users/:username',(req,res)=>{
-    res.send('Your user was deleted!')
+    // DOES NOT WORK, BUT WHY? EMPTY ARRAY
+    // users = users.filter((user) => {
+    //     req.params.username !== user.username
+    // })
+
+for (let i=0; i<users.length; i++){
+    if(users[i].username === req.params.username){
+        users.splice(i,1);
+    }
+}
+    res.send('Your user ' + req.params.username + ' was deleted!')
 })
 
 // add movie to favorites
 app.post('/users/:username/favorites',(req,res)=>{
     let user = users.find((user) => {
         return user.username === req.params.username})
-        console.log(req.body)
     let newMovie = req.body;
     if (user.favorites.indexOf(newMovie) === -1){
         user.favorites.push(newMovie)

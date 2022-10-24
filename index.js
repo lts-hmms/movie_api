@@ -232,7 +232,14 @@ app.post('/users/:username/favorites',(req,res)=>{
 
 // remove movie from favorites
 app.delete('/users/:username/favorites/:title',(req,res)=>{
-    res.send('Movie removed from Favslist.')
+    let user = users.find((user) => {
+        return user.username === req.params.username})
+    for (let i=0; i<user.favorites.length; i++){
+        if(user.favorites[i].title === req.params.title){
+            user.favorites.splice(i,1);
+        }
+    }
+        res.send('Movie ' + req.params.title + ' was removed from your Favslist!')
 })
 
 // Error request

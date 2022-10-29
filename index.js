@@ -95,27 +95,56 @@ app.get('/users',(req,res)=> {
             console.error(error);
             res.status(500).send('Error: ' + error);
         })
-})
+});
 
-// get specific movie
-app.get('/movies/:title',(req,res)=>{
-    res.json(movies.find((movie)=>{
-        return movie.title ===req.params.title;
-    }))
-})
+// get user by username
+app.get('/users/:Username',(req,res)=>{
+    Users.findOne({Username: req.params.Username})
+        .then((user) => {
+            res.status(201).json(user);
+        })
+        .catch((error) => {
+           console.error(error);
+           res.status(500).send('Error: ' + error);     
+        });
+});
 
-// get genre description by name
-app.get('/movies/:title/genre/:name',(req,res)=>{
-    let movie = movies.find((movie)=>{return movie.title ===req.params.title});
-    let genreArr =movie.genre;
-    for (let i=0; i<genreArr.length; i++){
-    if (genreArr[i].name === req.params.name){
-        res.send('Description of ' + req.params.name + ': ' + genreArr[i].description);
-    } else {
-        res.send('Sorry, genre not found');
-    }
-   }
-   })
+
+// get movie by title
+app.get('/movies/:Title',(req,res)=>{
+    Movies.findOne({Title: req.params.Title})
+        .then((movie) => {
+            res.status(201).json(movie);
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error ' + error);
+        })  
+});
+
+// get director by name
+app.get('/directors/:Name', (req,res) => {
+    Directors.findOne({Name: req.params.Name})
+        .then((director) => {
+            res.status(201).json(director);
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error: ' + error);
+        })
+})  
+
+// get genre by name
+app.get('/genres/:Name',(req,res)=>{
+    Genres.findOne({Name: req.params.Name})
+        .then((genre) => {
+            res.status(201).json(genre);
+        })
+        .catch((error)=>{
+            console.error(error);
+            res.status(500).send('Error: ' + error);
+        })
+})
 
 // get director data by name
 app.get('/movies/:title/director/:name',(req,res)=>{
@@ -131,20 +160,6 @@ app.get('/users/:id',(req,res)=>{
     res.json(users.find((user)=>{
         return req.params.id === user.id}));
     });
-
-// add user 
-// app.post('/users',(req,res)=>{
-//     let newUser = req.body;
-
-//     if (!newUser.username){
-//         const message = 'Username is missing in request body';
-//         res.status(400).send(message);
-//     } else {  
-//         newUser.id = uuid.v4();
-//         users.push(newUser);
-//         res.status(201).send('User added');
-// }
-// })
 
 //Add a user
 /* We’ll expect JSON in this format

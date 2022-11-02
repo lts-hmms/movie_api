@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title >Documentation</title>
+    <style>
+      body {
+        font-family: arial, sans-serif;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #000000;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+        border:solid;
+        border-width:1px 0;
+      }
+      code {
+      display: block;
+      white-space: pre-wrap
+}
+    </style>
+  </head>
+  <body>
+    <h1>An API in Node.js that returns facts about movies with an approach of diversity</h1>
+    <h2>Documentation</h2>
+
+    <table>
+      <tr>
+        <th>HTTP Method</th>
+        <th>URL</th>
+        <th>Business Logic</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies</td>
+        <td>Get a list of all movies</td>
+        <td>None</td>
+        <td>
+          An array holding JSON Objects
+          <p>Example:</p>
+          <code>
+[ 
+    {
+        "_id": "63596a61b2e4e7109ac44bb2",
+        "title": "Black Panther", 
+        "Year": "2018",
+        "Description": "After the death of his father...",
+        "imageUrl": "https://url.com", 
+        "Featured": true,
+        "directors": [
+          "635961ecb2e4e7109ac44b9a"
+        ],
+        "Genres": [ 
+          "635964e5b2e4e7109ac44ba4",
+          "635964e5b2e4e7109ac44ba5",
+          "635964e5b2e4e7109ac44ba6" 
+        ], 
+        "Actors": [
+          "63595eb0b2e4e7109ac44b6f",
+          "63595f9db2e4e7109ac44b70",
+          "63595f9db2e4e7109ac44b71"
+        ]
+    }, 
+]
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/genres</td>
+        <td>Get a list of all genres</td>
+        <td>None</td>
+        <td>
+          An array holding JSON Objects
+          <p>Example:</p>
+          <code>
+[
+    {
+        "_id": "635964e5b2e4e7109ac44ba4",
+        "Name": "Action",
+        "Description": "Movies in the action genre are... "
+    },
+]
+        </code>
+        </td>
+        </tr>
+        <tr>
+        <td>GET</td>
+        <td>/directors</td>
+        <td>Get a list of all directors</td>
+        <td>None</td>
+        <td>
+          An array holding JSON Objects
+          <p>Example:</p>
+          <code>
+[
+    {
+        "_id": "635961ecb2e4e7109ac44b9a",
+        "Name": "Ryan Coogler",
+        "birthYear": 1986,
+        "bio": "Ryan Kyle Coogler is an African-American..."
+    },
+]
+        </code>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/actors</td>
+        <td>Get a list of all actors</td>
+        <td>None</td>
+        <td>
+          An array holding JSON Objects
+          <p>Example:</p>
+          <code>
+[
+    {
+        "_id": "63595eb0b2e4e7109ac44b6f",
+        "Name": "Chadwick Boseman"
+    },
+]
+        </code>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>Get a list of all users</td>
+        <td>None</td>
+        <td>
+          An array holding JSON Objects
+          <p>Example:</p>
+          <code>
+[
+    {
+        "_id": "635cf4af71c8a5988bf0064b",
+        "Username": "Tester7",
+        "Password": "blablubi",
+        "Email": "test5@web.de",
+        "Birthday": "2007-03-20T23:00:00.000Z",
+        "Favslist": [],
+        "__v": 0
+    }
+]
+        </code>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies/[title]</td>
+        <td>Get data about a movie by title</td>
+        <td>None</td>
+        <td>
+          A JSON object 
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/genres/[name]</td>
+        <td>Get data about a genre by name</td>
+        <td>None</td>
+        <td>A JSON object</td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/directors/[name]</td>
+        <td>Get data about a director by name</td>
+        <td>None</td>
+        <td>
+          A JSON object
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users/[username]</td>
+        <td>Get data about a user by username</td>
+        <td>None</td>
+        <td>
+          A JSON object
+        </td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users</td>
+        <td>Add a new user</td>
+        <td>
+          A JSON Object holding data about the user to add
+          <p>Example:</p>
+          <code>
+{
+  "Username" : "watcherOne", 
+  "Password" : "zsvd3k/hs",
+  "Email" : "user1@mail.de", 
+  "Birthday" : "2001-02-24"
+}
+          </code>
+        </td>
+        <td>
+          A JSON Object holding data about the added user
+          <p>Example:</p>
+          <code>
+{
+  "Username" : "watcherOne", 
+  "Password" : "zsvd3k/hs",
+  "Email" : "user1@mail.de", 
+  "Birthday" : "2001-02-24"
+  "Favslist": [],
+  "_id": "635cf4af71c8a5988bf0064b",
+  "__v": 0
+}
+          </code>
+        </td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/users/[username]</td>
+        <td>Update user info</td>
+        <td>A JSON Object holding the updated line
+          <p>Example:</p>
+          {
+            "Username":"Tester7",
+          }
+        </td>
+        <td>A JSON Object holding data about the updated user including the new data
+        <p>Example:</p>
+        <code>
+{
+  "Username" : "Tester7", 
+  "Password" : "zsvd3k/hs",
+  "Email" : "user1@mail.de", 
+  "Birthday" : "2001-02-24"
+  "Favslist": [],
+  "_id": "635cf4af71c8a5988bf0064b",
+  "__v": 0
+}
+      </td> 
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users/[username]/movies/[movieID]</td>
+        <td>Add movie to the Favslist of a user (when it doesn't exist in there)</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about the user 
+          <p>Example:</p>
+          <code>
+{
+  "_id": "635a565db2e4e7109ac44bc0",
+  "Username": "Tester7",
+  "Password": "hsgDie3u&",
+  "Email": "newMail@gmx.de",
+  "Birthday": "1970-01-01T00:00:01.945Z",
+  "Favslist": [
+    "63596e55b2e4e7109ac44bbc",
+    "63596e55b2e4e7109ac44bb7",
+    "63596e55b2e4e7109ac44bb6",
+    "63596e55b2e4e7109ac44bb5"
+  ]
+}
+          </code>
+        </td>
+      
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/[username]/movies/[movieID]/</td>
+        <td>Remove movie from Favslist</td>
+        <td>None</td>
+        <td>
+          A JSON object holding data about the user 
+          <p>Example:</p>
+          <code>
+{
+  "_id": "635a565db2e4e7109ac44bc0",
+  "Username": "Tester7",
+  "Password": "hsgDie3u&",
+  "Email": "newMail@gmx.de",
+  "Birthday": "1970-01-01T00:00:01.945Z",
+  "Favslist": [
+    "63596e55b2e4e7109ac44bbc",
+    "63596e55b2e4e7109ac44bb7",
+    "63596e55b2e4e7109ac44bb6",
+  ]
+}
+        </td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/[username]</td>
+        <td>Remove a user by username</td>
+        <td>None</td>
+        <td>
+          A text message including the username of the user who was deleted
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

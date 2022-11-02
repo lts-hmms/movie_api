@@ -27,7 +27,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const allowedOrigins = ['hhtp://localhost:8080', 'http://testsite.com'];
+const allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 app.use(cors());
 
 const auth = require('./auth')(app);
@@ -411,6 +411,7 @@ app.use((err, req, res, next) => {
 
 // listen for requests
 const port = process.env.PORT || 8080;
-app.listen(port, '0.0.0.0', () => {
-        console.log(`Listening on Port ${port}`);
+app.listen(port, () => {
+        // eslint-disable-next-line prefer-template
+        console.log('Listening on Port' + port);
 });

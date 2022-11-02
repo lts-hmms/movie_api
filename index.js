@@ -27,7 +27,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+const allowedOrigins = ['http://localhost:8080', 'https://polar-ravine-02400.herokuapp.com/'];
 app.use(cors());
 
 const auth = require('./auth')(app);

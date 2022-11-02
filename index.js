@@ -12,7 +12,6 @@ main().catch((err) => console.log(err));
 async function main() {
         await mongoose.connect('mongodb://localhost:27017/myMoviesDB');
 }
-mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const cors = require('cors');
 const { check, validationResult } = require('express-validator');
@@ -28,7 +27,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const allowedOrigins = ['http://localhost:8080', 'https://polar-ravine-02400.herokuapp.com/'];
 app.use(cors());
 
 const auth = require('./auth')(app);
@@ -411,8 +409,8 @@ app.use((err, req, res, next) => {
 });
 
 // listen for requests
+// eslint-disable-next-line no-unused-vars
 const port = process.env.PORT || 8080;
-app.listen(port, () => {
-        // eslint-disable-next-line prefer-template
-        console.log('Listening on Port' + port);
+app.listen(port, '0.0.0.0', () => {
+        console.log(`Listening on Port ${port}`);
 });

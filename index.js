@@ -332,6 +332,7 @@ app.post(
                                         Name: req.body.Name,
                                         YearOfBirth: req.body.Birthyear,
                                         Bio: req.body.Bio,
+                                        Movies: req.body.Movies,
                                 })
                                         .then((director) => {
                                                 res.status(201).json(director);

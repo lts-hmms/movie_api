@@ -10,8 +10,8 @@ const mongoose = require('mongoose');
 main().catch((err) => console.log(err));
 
 async function main() {
-        await mongoose.connect('mongodb://localhost:27017/myMoviesDB'); // connecting to local db
-        /* mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true }); */
+        /* await mongoose.connect('mongodb://localhost:27017/myMoviesDB'); */ // connecting to local db
+        mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
 const cors = require('cors');

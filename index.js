@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
         Movies.find()
                 .then((movies) => {
-                        res.status(200).json(movies);
+                        res.status(200).json(movies.populate('Genres'));
                 })
                 .catch((error) => {
                         console.error(error);

@@ -31,20 +31,20 @@ const directorSchema = new mongoose.Schema({
         Name: { type: String, required: true },
         YearOfBirth: Number,
         Bio: String,
-        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies' }],
+        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
 });
 
 const genreSchema = new mongoose.Schema({
         Name: { type: String, required: true },
         Description: String,
-        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies' }],
+        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
 });
 
 const actorSchema = new mongoose.Schema({
         Name: { type: String, required: true },
         YearOfBirth: Number,
         Bio: String,
-        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies' }],
+        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
 });
 
 const Movie = mongoose.model('Movie', movieSchema);

@@ -114,7 +114,7 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 // get user by username
 app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
         Users.findOne({ Username: req.params.Username })
-                .populate('Fasvlist', 'Title')
+                .populate('Movies', 'Title')
                 .then((user) => {
                         res.status(200).json(user);
                 })

@@ -10,7 +10,8 @@ const mongoose = require('mongoose');
 main().catch((err) => console.log(err));
 
 async function main() {
-        await mongoose.connect('mongodb://localhost:27017/myMoviesDB');
+        /* await mongoose.connect('mongodb://localhost:27017/myMoviesDB'); */ // connecting to local db
+        await mongoose.connect(process.env.CONNECTION_URI);
 }
 
 const cors = require('cors');

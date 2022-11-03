@@ -11,7 +11,10 @@ main().catch((err) => console.log(err));
 
 async function main() {
         /* await mongoose.connect('mongodb://localhost:27017/myMoviesDB'); */ // connecting to local db
-        await mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+        mongoose.connect(
+                'mongodb+srv://jusue:53DUY4ypZpiNgJW@cluster-ltshmms.lzqzovp.mongodb.net/myMoviesDB?retryWrites=true&w=majority',
+                { useNewUrlParser: true, useUnifiedTopology: true }
+        );
 }
 
 const cors = require('cors');

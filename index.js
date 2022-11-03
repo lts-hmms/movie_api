@@ -179,7 +179,6 @@ app.post(
                                 if (movie) {
                                         return res.status(400).send(`${req.body.Title} already exists.`);
                                 }
-                                Movies.populate('Directors');
                                 Movies.create({
                                         Title: req.body.Title,
                                         Year: req.body.Year,

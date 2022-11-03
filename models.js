@@ -5,9 +5,9 @@ const movieSchema = new mongoose.Schema({
         Title: { type: String, required: true },
         Year: Number,
         Description: { type: String, required: true },
-        Genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genres' }],
-        Directors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Directors' }],
-        Actors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Actors' }],
+        Genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
+        Directors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Director' }],
+        Actors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Actor' }],
         ImagePath: String,
         Featured: Boolean,
 });

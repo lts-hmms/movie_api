@@ -5,9 +5,9 @@ const movieSchema = new mongoose.Schema({
         Title: { type: String, required: true },
         Year: Number,
         Description: { type: String, required: true },
-        Genres: [String],
-        Directors: [String],
-        Actors: [String],
+        Genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genres' }],
+        Directors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Directors' }],
+        Actors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Actors' }],
         ImagePath: String,
         Featured: Boolean,
 });
@@ -31,17 +31,20 @@ const directorSchema = new mongoose.Schema({
         Name: { type: String, required: true },
         YearOfBirth: Number,
         Bio: String,
+        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies' }],
 });
 
 const genreSchema = new mongoose.Schema({
         Name: { type: String, required: true },
         Description: String,
+        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies' }],
 });
 
 const actorSchema = new mongoose.Schema({
         Name: { type: String, required: true },
         YearOfBirth: Number,
         Bio: String,
+        Movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movies' }],
 });
 
 const Movie = mongoose.model('Movie', movieSchema);

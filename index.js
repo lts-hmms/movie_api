@@ -51,6 +51,7 @@ app.get('/', (req, res) => {
 // get all movies
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
         Movies.find()
+                .populate('Genres')
                 .then((movies) => {
                         res.status(200).json(movies);
                 })
@@ -171,6 +172,7 @@ app.post(
                                 if (movie) {
                                         return res.status(400).send(`${req.body.Title} already exists.`);
                                 }
+                                Movies.populate('Directors');
                                 Movies.create({
                                         Title: req.body.Title,
                                         Year: req.body.Year,

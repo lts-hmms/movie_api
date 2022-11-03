@@ -50,9 +50,9 @@ app.get('/', (req, res) => {
 
 // get all movies
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
-        Movies.find()
+        Movies.find().populate('Genres');
                 .then((movies) => {
-                        res.status(200).json(movies).populate('Genres');
+                        res.status(200).json(movies)
                 })
                 .catch((error) => {
                         console.error(error);

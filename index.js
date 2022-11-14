@@ -49,22 +49,19 @@ app.get('/', (req, res) => {
 });
 
 // get all movies
-app.get(
-        '/movies',
-        /* passport.authenticate('jwt', { session: false }), */ (req, res) => {
-                Movies.find()
-                        .populate('Genres', 'Name')
-                        .populate('Directors', 'Name')
-                        .populate('Actors', 'Name')
-                        .then((movies) => {
-                                res.status(200).json(movies);
-                        })
-                        .catch((error) => {
-                                console.error(error);
-                                res.status(500).send(`Error: ${error}`);
-                        });
-        }
-);
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+        Movies.find()
+                .populate('Genres', 'Name')
+                .populate('Directors', 'Name')
+                .populate('Actors', 'Name')
+                .then((movies) => {
+                        res.status(200).json(movies);
+                })
+                .catch((error) => {
+                        console.error(error);
+                        res.status(500).send(`Error: ${error}`);
+                });
+});
 
 // get all genres
 app.get('/genres', passport.authenticate('jwt', { session: false }), (req, res) => {

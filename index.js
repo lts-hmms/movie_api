@@ -280,7 +280,9 @@ app.patch(
         check(
                 'Password',
                 'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
-        ).exists().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+        )
+                .exists()
+                .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
         check('Email', 'This does not appear to be a valid email address.').isEmail(),
         (req, res) => {
                 // let hashedPassword = Users.hashPassword(req.body.Password).optional({ checkFalsy: true });

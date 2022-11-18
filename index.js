@@ -270,7 +270,7 @@ app.post(
 );
 
 // update user data
-app.put(
+app.patch(
         '/users/:Username',
         passport.authenticate('jwt', { session: false }),
         // check('Username', 'Username needs at least 5 characters and a max. of 20.').isLength({ min: 5, max: 20 }),

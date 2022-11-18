@@ -277,24 +277,26 @@ app.put(
         // check('Username', 'Username contains non alphanumeric characters – not allowed.').matches(
         //         /^[A-Za-z0-9 .,'!&öüäÖÜÄ]+$/
         // ),
-        // check('Password','Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.')
-        //         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
-        //         .optional({ checkFalsy: true }),
+        check(
+                'Password',
+                'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
+        )
+                .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+                .optional({ checkFalsy: true }),
         check('Email', 'This does not appear to be a valid email address.').isEmail().optional({ checkFalsy: true }),
         (req, res) => {
-                // eslint-disable-next-line prefer-const
                 // let hashedPassword = Users.hashPassword(req.body.Password).optional({ checkFalsy: true });
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
                         return res.status(422).json({ errors: errors.array() });
                 }
-                // const hashedPassword = Users.hashPassword(req.body.Password);
+                const hashedPassword = Users.hashPassword(req.body.Password);
                 Users.findOneAndUpdate(
                         { Username: req.params.Username },
                         {
                                 $set: {
                                         // Username: req.body.Username,
-                                        // Password: hashedPassword,
+                                        Password: hashedPassword,
                                         Email: req.body.Email,
                                         // Birthday: req.body.Birthday,
                                 },

@@ -277,12 +277,12 @@ app.put(
         check('Username', 'Username contains non alphanumeric characters – not allowed.').matches(
                 /^[A-Za-z0-9 .,'!&öüäÖÜÄ]+$/
         ),
-        check(
-                'Password',
-                'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
-        )
-                .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
-                .optional(),
+        // check(
+        //         'Password',
+        //         'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
+        // )
+        //         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+        //         .optional(),
         check('Email', 'This does not appear to be a valid email address.').isEmail().optional(),
         (req, res) => {
                 // eslint-disable-next-line prefer-const

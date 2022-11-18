@@ -271,8 +271,8 @@ app.post(
 
 // update user data
 app.put(
-        // '/users/:Username',
-        // passport.authenticate('jwt', { session: false }),
+        '/users/:Username',
+        passport.authenticate('jwt', { session: false }),
         // check('Username', 'Username needs at least 5 characters and a max. of 20.').isLength({ min: 5, max: 20 }),
         // check('Username', 'Username contains non alphanumeric characters – not allowed.').matches(
         //         /^[A-Za-z0-9 .,'!&öüäÖÜÄ]+$/

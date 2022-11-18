@@ -270,7 +270,7 @@ app.post(
 );
 
 // update user data
-app.patch(
+app.p(
         '/users/:Username',
         passport.authenticate('jwt', { session: false }),
         // check('Username', 'Username needs at least 5 characters and a max. of 20.').isLength({ min: 5, max: 20 }),
@@ -280,9 +280,8 @@ app.patch(
         check(
                 'Password',
                 'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
-        )
-                .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
-        check('Email', 'This does not appear to be a valid email address.').isEmail()
+        ).matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
+        check('Email', 'This does not appear to be a valid email address.').isEmail(),
         (req, res) => {
                 // let hashedPassword = Users.hashPassword(req.body.Password).optional({ checkFalsy: true });
                 const errors = validationResult(req);

@@ -280,7 +280,9 @@ app.put(
         check(
                 'Password',
                 'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
-        ).matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, 'i'),
+        )
+                .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+                .optional(),
         check('Email', 'This does not appear to be a valid email address.').isEmail().optional(),
         (req, res) => {
                 // eslint-disable-next-line prefer-const

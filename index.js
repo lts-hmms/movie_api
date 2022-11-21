@@ -281,12 +281,11 @@ app.patch(
                 'Password',
                 'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
         )
-                .isLength({ min: 8 })
-                .optional({}),
-        // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
+                // .isLength({ min: 8 })
+                .optional({})
+                .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
         check('Email', 'This does not appear to be a valid email address.').isEmail().optional({}),
         (req, res) => {
-                // let hashedPassword = Users.hashPassword(req.body.Password).optional({ checkFalsy: true });
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
                         return res.status(422).json({ errors: errors.array() });

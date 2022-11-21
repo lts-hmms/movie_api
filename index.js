@@ -277,31 +277,29 @@ app.patch(
         // check('Username', 'Username contains non alphanumeric characters – not allowed.').matches(
         //         /^[A-Za-z0-9 .,'!&öüäÖÜÄ]+$/
         // ),
-        [
-                check(
-                        'Password',
-                        'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
-                )
-                        .isLength({ min: 8 })
-                        .optional({}),
-                // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
-                check('Email', 'This does not appear to be a valid email address.').isEmail(),
-        ],
+        check(
+                'Password',
+                'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
+        )
+                .isLength({ min: 8 })
+                .optional({}),
+        // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
+        check('Email', 'This does not appear to be a valid email address.').isEmail(),
         (req, res) => {
                 // let hashedPassword = Users.hashPassword(req.body.Password).optional({ checkFalsy: true });
                 const errors = validationResult(req);
                 if (!errors.isEmpty()) {
                         return res.status(422).json({ errors: errors.array() });
                 }
-                if (Password) {
-                        const hashedPassword = Users.hashPassword(req.body.Password);
-                }
+                // if (Password) {
+                //         const hashedPassword = Users.hashPassword(req.body.Password);
+                // }
                 Users.findOneAndUpdate(
                         { Username: req.params.Username },
                         {
                                 $set: {
                                         // Username: req.body.Username,
-                                        Password: hashedPassword,
+                                        Password: req.body.Password,
                                         Email: req.body.Email,
                                         // Birthday: req.body.Birthday,
                                 },

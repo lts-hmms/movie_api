@@ -293,7 +293,7 @@ app.patch(
                 }
                 // if (password) {
                 //         const hashedPassword = Users.hashPassword(req.body.Password);
-                }
+                // }
                 Users.findOneAndUpdate(
                         { Username: req.params.Username },
                         {

@@ -291,15 +291,15 @@ app.patch(
                 if (!errors.isEmpty()) {
                         return res.status(422).json({ errors: errors.array() });
                 }
-                if (password) {
-                        const hashedPassword = Users.hashPassword(req.body.Password);
+                // if (password) {
+                //         const hashedPassword = Users.hashPassword(req.body.Password);
                 }
                 Users.findOneAndUpdate(
                         { Username: req.params.Username },
                         {
                                 $set: {
                                         // Username: req.body.Username,
-                                        Password: hashedPassword,
+                                        // Password: hashedPassword,
                                         Email: req.body.Email,
                                         // Birthday: req.body.Birthday,
                                 },

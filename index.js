@@ -28,7 +28,20 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
+const allowedOrigins = ['http://localhost:1234', 'https://mequal.netlify.app'];
+app.use(
+        cors({
+                origin: (origin, callback) => {
+                        if (!origin) return callback(null, true);
+                        // If a specific origin isn’t found on the list of allowed origins
+                        if (allowedOrigins.indexOf(origin) === -1) {
+                                const message = `The CORS policy for this application doesn't allow access from origin ${origin}`;
+                                return callback(new Error(message), false);
+                        }
+                        return callback(null, true);
+                },
+        })
+);
 
 const auth = require('./auth')(app);
 // eslint-disable-next-line import/order

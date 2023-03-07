@@ -28,7 +28,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const allowedOrigins = ['http://localhost:1234', 'https://mequal.netlify.app'];
+const allowedOrigins = ['http://localhost:1234', 'https://mequal.netlify.app', 'http://localhost:4200'];
 app.use(
         cors({
                 origin: (origin, callback) => {

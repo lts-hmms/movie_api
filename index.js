@@ -64,9 +64,9 @@ app.get('/', (req, res) => {
 // get all movies
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
         Movies.find()
-                .populate('Genres', 'Name')
-                .populate('Directors', 'Name')
-                .populate('Actors', 'Name')
+                .populate('Genres')
+                .populate('Directors')
+                .populate('Actors')
                 .then((movies) => {
                         res.status(200).json(movies);
                 })
@@ -143,7 +143,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
         Movies.findOne({ Title: req.params.Title })
                 .populate('Genres')
                 .populate('Directors')
-                .populate('Actors', 'Name')
+                .populate('Actors')
                 .then((movie) => {
                         res.status(200).json(movie);
                 })

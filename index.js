@@ -141,8 +141,8 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 // get movie by title
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
         Movies.findOne({ Title: req.params.Title })
-                .populate('Genres', 'Name')
-                .populate('Directors', 'Name')
+                .populate('Genres', 'Name', 'Description')
+                .populate('Directors', 'Name', 'Birthyear', 'Bio')
                 .populate('Actors', 'Name')
                 .then((movie) => {
                         res.status(200).json(movie);

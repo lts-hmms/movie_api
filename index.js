@@ -424,9 +424,12 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
         Users.findOneAndDelete({ Username: req.params.Username })
                 .then((user) => {
                         if (!user) {
-                                res.status(400).send(`${req.params.Username} not found`);
+                                res.status(400).json({ message: `${req.params.Username} not found` });
                         } else {
-                                res.status(200).send(`${req.params.Username} was deleted.`);
+                                res.status(200).json({
+                                        status: 200,
+                                        message: `${req.params.Username} was successfully deleted`,
+                                });
                         }
                 })
                 .catch((error) => {

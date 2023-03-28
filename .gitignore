@@ -3,3 +3,5 @@ node_modules
 .eslintrc
 index_before_mongoose.js
 .gitignore
+movieImages
+log.txt

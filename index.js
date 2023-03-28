@@ -1,11 +1,15 @@
+// Requirements
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 
-main().catch((err) => console.log(err));
+// main().catch((err) => console.log(err));
 
+/**
+ * @function (main) - Connects to the database and starts the server
+ */
 async function main() {
         mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 }
@@ -22,6 +26,7 @@ const Genres = Models.Genre;
 const Actors = Models.Actor;
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -31,6 +36,7 @@ const allowedOrigins = [
         'http://localhost:4200',
         'https://lts-hmms.github.io',
 ];
+
 app.use(
         cors({
                 origin: (origin, callback) => {
@@ -59,6 +65,10 @@ app.use(express.static('public', options));
 app.get('/', (req, res) => {
         res.send('<h1>This is just a default textual response. Nothing to worry about.</h1>');
 });
+
+/**
+ * Define the routes
+ */
 
 // get all movies
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {

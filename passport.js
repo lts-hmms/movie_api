@@ -1,3 +1,8 @@
+/**
+ * @module passport
+ * This module contains all methods that are used to authenticate users with Passport.
+ */
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const passportJWT = require('passport-jwt');
@@ -7,6 +12,13 @@ const Users = Models.User;
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 
+/**
+ * @function (passport) LocalStrategy
+ * @param {string} usernameField - the field that contains the username
+ * @param {string} passwordField - the field that contains the password
+ * @param {callback} callback - the callback function that will be called when the user is authenticated
+ * @description This function authenticates the user using the local strategy.
+ */
 passport.use(
         new LocalStrategy(
                 {
@@ -14,7 +26,6 @@ passport.use(
                         passwordField: 'Password',
                 },
                 (username, password, callback) => {
-                        console.log(`${username} ${password}`);
                         Users.findOne({ Username: username }, (error, user) => {
                                 if (error) {
                                         console.log(error);
@@ -34,6 +45,14 @@ passport.use(
                 }
         )
 );
+
+/**
+ * @function (passport) JWTStrategy
+ * @param {string} jwtFromRequest - the field that contains the JWT
+ * @param {string} secretOrKey - the secret key used to sign the JWT
+ * @param {callback} callback - the callback function that will be called when the user is authenticated
+ * @description This function authenticates the user using the JWT strategy.
+ */
 
 passport.use(
         new JWTStrategy(

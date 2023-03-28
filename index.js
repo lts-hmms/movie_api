@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -10,12 +7,12 @@ const mongoose = require('mongoose');
 main().catch((err) => console.log(err));
 
 async function main() {
-        /* await mongoose.connect('mongodb://localhost:27017/myMoviesDB'); */ // connecting to local db
         mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
 const cors = require('cors');
 const { check, validationResult } = require('express-validator');
+const passport = require('passport');
 const Models = require('./models.js');
 
 const Movies = Models.Movie;
@@ -49,8 +46,6 @@ app.use(
 );
 
 const auth = require('./auth')(app);
-// eslint-disable-next-line import/order
-const passport = require('passport');
 require('./passport');
 
 const options = {
@@ -61,7 +56,6 @@ app.use(morgan('common'));
 
 app.use(express.static('public', options));
 
-// GET requests
 app.get('/', (req, res) => {
         res.send('<h1>This is just a default textual response. Nothing to worry about.</h1>');
 });
@@ -125,8 +119,8 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
                         res.status(200).json(users);
                 })
                 .catch((err) => {
-                        console.error(error);
-                        res.status(500).send(`Error: ${error}`);
+                        console.error(err);
+                        res.status(500).send(`Error: ${err}`);
                 });
 });
 
@@ -291,10 +285,6 @@ app.post(
 app.patch(
         '/users/:Username',
         passport.authenticate('jwt', { session: false }),
-        // check('Username', 'Username needs at least 5 characters and a max. of 20.').isLength({ min: 5, max: 20 }),
-        // check('Username', 'Username contains non alphanumeric characters – not allowed.').matches(
-        //         /^[A-Za-z0-9 .,'!&öüäÖÜÄ]+$/
-        // ),
         check(
                 'Password',
                 'Password should be at least 8 characters long, minimum of one uppercase, one lowercase and one number.'
@@ -317,14 +307,12 @@ app.patch(
                         { Username: req.params.Username },
                         {
                                 $set: {
-                                        // Username: req.body.Username,
                                         Password: hashedPassword,
                                         Email: req.body.Email,
-                                        // Birthday: req.body.Birthday,
                                 },
                         },
                         { new: true }
-                ) // this makes sure that the updated document is gonna returned
+                )
                         .then((updatedUser) => {
                                 res.status(201).json(updatedUser);
                         })
@@ -445,7 +433,6 @@ app.use((err, req, res, next) => {
 });
 
 // listen for requests
-// eslint-disable-next-line no-unused-vars
 const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0', () => {
         console.log(`Listening on Port ${port}`);

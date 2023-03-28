@@ -5,8 +5,7 @@ const passport = require('passport');
 
 require('./passport'); // my local passport file
 
-// eslint-disable-next-line prefer-const
-let generateJWTToken = (user) =>
+const generateJWTToken = (user) =>
         jwt.sign(user, jwtSecret, {
                 subject: user.Username, // this is the username i am encoding in the JWT
                 expiresIn: '7d', // this specifies that the token will expire in 7 days
@@ -16,7 +15,7 @@ let generateJWTToken = (user) =>
 /* POST login */
 module.exports = (router) => {
         router.post('/login', (req, res) => {
-                passport.authenticate('local', { session: false }, (error, user, info) => {
+                passport.authenticate('local', { session: false }, (error, user) => {
                         if (error || !user) {
                                 return res.status(400).json({
                                         message: 'Something is not right',

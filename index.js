@@ -5,11 +5,11 @@ const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 
-main().catch((err) => console.log(err));
-
 /**
  * @function (main) - Connects to the database and starts the server
  */
+main().catch((err) => console.log(err));
+
 async function main() {
         mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 }

@@ -5,7 +5,7 @@ const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 
-// main().catch((err) => console.log(err));
+main().catch((err) => console.log(err));
 
 /**
  * @function (main) - Connects to the database and starts the server

@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to the "mequal API"</h1>
 
-> The server-sice component of a movies web application. It provides users with access to information about different movies, directors, and genres. Users are able to sign up, update their personal information, and create a list of their favorite movies.
+> The server-side component of a movies web application. It provides users with access to information about different movies, directors, and genres. Users are able to sign up, update their personal information, and create a list of their favorite movies.
 
 ## Description
 
